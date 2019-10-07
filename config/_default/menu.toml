@@ -1,0 +1,24 @@
+[[main]]
+  name = "About"
+  weight = 100
+  identifier = "home"
+  url = "/about/"
+# [[main]]
+#   name = "Archives"
+#   weight = 20
+#   identifier = "archives"
+#   url = "/post/"
+# [[main]]
+#   name = "Tags"
+#   weight = 30
+#   identifier = "tags"
+#   url = "/tags/"
+# [[main]]
+#   name = "Categories"
+#   weight = 40
+#   identifier = "categories"
+#   url = "/categories/"
+# [[main]]
+#   name = "external-link"
+#   weight = 50
+#   url = "https://gohugo.io"
