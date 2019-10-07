@@ -1,0 +1,50 @@
+{{ define "content" -}}
+
+  <article class="post bg-white">
+    <!-- post-header -->
+    <header class="post-header">
+      <h1 class="post-title">{{ .Title }}</h1>
+      {{ partial "post/i18nlist.html" . }}
+      <div class="post-meta">
+        <time datetime="{{ .Date.Format "2006-01-02" }}" class="post-time">
+          {{ .Lastmod.Format (.Site.Params.dateFormatToUse | default "2006-01-02") }}
+        </time>
+        {{ with .Params.categories -}}
+          <div class="post-category">
+            {{ range . }}
+            {{- $name := . -}}
+            {{- with $.Site.GetPage "taxonomy" (printf "categories/%s" $name) | default ($.Site.GetPage "taxonomy" (printf "categories/%s" ($name | urlize))) -}}
+              <a href="{{ .Permalink }}"> {{ $name }} </a>
+            {{ end -}}
+            {{ end }}
+          </div>
+        {{- end }}
+      </div>
+      <div>
+        {{ $.Params.day }}
+        {{ $.Params.address }}
+        {{ $.Params.length }}
+      </div>
+    </header>
+
+    <!-- Content -->
+    <div class="post-content">
+      {{ .Content }}
+    </div>
+
+    <footer class="post-footer">
+      {{ with .Params.tags -}}
+        <div class="post-tags">
+          {{ range . }}
+          {{- $name := . -}}
+          {{- with $.Site.GetPage "taxonomy" (printf "tags/%s" $name) | default ($.Site.GetPage "taxonomy" (printf "tags/%s" ($name | urlize))) -}}
+          <a href="{{ .Permalink }}">{{ $name }}</a>
+          {{ end -}}
+          {{ end }}
+        </div>
+      {{- end }}
+
+    </footer>
+  </article>
+
+{{- end }}
