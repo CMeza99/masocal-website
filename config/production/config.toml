@@ -1,4 +1,4 @@
-baseURL = "https://masocal.pages.gitlab.disney.com/masocal-website/"
+baseURL = "https://masocal.gitlab.io/masocal-website/"
 buildDrafts = false
 buildFuture = false
 canonifyURLs = true
