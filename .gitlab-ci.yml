@@ -1,0 +1,30 @@
+---
+image: registry.gitlab.com/pages/hugo/hugo_extended:latest
+
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
+default:
+  before_script:
+  - apk add --update git npm
+  - npm install -D
+
+test:
+  script:
+  - hugo --buildDrafts --buildFuture
+  except:
+  - master
+
+pages:
+  script:
+  - hugo --environment production
+  - printf "Disallow: /*\n" > public/robot.txt
+  - printenv | sort
+  artifacts:
+    paths:
+    - public
+  environment:
+      name: staging
+      url: http://${CI_PROJECT_NAMESPACE}.gitlab.io/${CI_PROJECT_NAME}/
+  only:
+  - master
