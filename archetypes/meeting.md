@@ -4,11 +4,11 @@ draft: true
 tags: []
 categories: []
 
-ventue: ""
+venue: ""
 address: ""
-day: Monday
-time: 00:00:00
+day: 0
+time: 00:00
 length: 60
-district: ""
+district: 0
 meetings: []
 ---

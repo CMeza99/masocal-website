@@ -1,11 +1,11 @@
 ---
 title: "Young People & Young at Heart"
-ventue: Grace Brethren Church
+venue: Grace Brethren Church
 address: 920 Fremont Avenue, South Pasadena, CA 91030
-day: Tuesday
-time: 19:00:00
-lenth: 60
-district: "10"
+day: 2
+time: 19:00
+length: 60
+district: 10
 meetings:
 - "open"
 - "discussion"
