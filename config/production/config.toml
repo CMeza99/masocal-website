@@ -1,0 +1,5 @@
+baseURL = "https://masocal.pages.gitlab.disney.com/masocal-website/"
+buildDrafts = false
+buildFuture = false
+canonifyURLs = true
+publishDir = "public"

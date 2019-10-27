@@ -1,15 +1,22 @@
 baseURL = "http://www.masocal.org/"
 title = "MA Socal"
-enableRobotsTXT = true
-enableEmoji = true
 theme = "jane"
+
+buildDrafts = true
+buildFuture = true
+
+publishDir = "_public"
+resourceDir = "_resources"
+
+enableRobotsTXT = true
+enableGitInfo = true
+enableEmoji = true
 
 paginate = 3
 # rssLimit = 20
 # disqusShortname = ""
 # googleAnalytics = ""
 # copyright = ""
-enableGitInfo = true
 
 verbose = true
 watch = true
