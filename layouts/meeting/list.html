@@ -1,0 +1,21 @@
+{{ define "content" -}}
+
+  <main>
+      {{ .Content }}
+
+{{ range sort (.Pages.GroupByParam "day") }}
+<h3>{{ dateFormat "Monday" (printf "1989-01-0%s" (string .Key)) }}</h3>
+<ul>
+    {{ range sort (.Pages.ByParam "time") }}
+    <li>
+      <time>{{ dateFormat "03:04pm" (printf "1989-01-01T%s:00" (.Param "time")) }}</time>
+      &ndash;
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </li>
+    {{ end }}
+</ul>
+{{ end }}
+
+  </main>
+
+{{- end }}
