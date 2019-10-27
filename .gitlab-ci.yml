@@ -1,13 +1,12 @@
 ---
-image: registry.gitlab.com/pages/hugo/hugo_extended:latest
-
-variables:
-  GIT_SUBMODULE_STRATEGY: recursive
-
 default:
+  image: registry.gitlab.com/pages/hugo/hugo_extended:latest
   before_script:
   - apk add --update git npm
   - npm install -D
+
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
 
 test:
   script:
@@ -16,6 +15,7 @@ test:
   - master
 
 pages:
+  stage: stage
   script:
   - hugo --environment production
   - >-
@@ -28,3 +28,8 @@ pages:
       url: ${CI_PAGES_URL}
   only:
   - master
+
+stages:
+  - test
+  - stage
+  # - deploy
