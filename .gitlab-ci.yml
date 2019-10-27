@@ -18,7 +18,8 @@ test:
 pages:
   script:
   - hugo --environment production
-  - printf "Disallow: /*\n" > public/robot.txt
+  - >-
+    printf "Disallow: /*\n" > public/robot.txt
   - printenv | sort
   artifacts:
     paths:
