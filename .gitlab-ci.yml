@@ -17,14 +17,15 @@ test:
 pages:
   stage: stage
   script:
-  - hugo --environment production
+  - printenv | sort
+  - hugo --environment ${CI_ENVIRONMENT_NAME}
   - >-
     printf "Disallow: /*\n" > public/robot.txt
   artifacts:
     paths:
     - public
   environment:
-      name: staging
+      name: stage
       url: ${CI_PAGES_URL}
   only:
   - master
