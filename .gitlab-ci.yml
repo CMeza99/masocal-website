@@ -11,16 +11,16 @@ default:
 
 test:
   script:
-  - hugo --buildDrafts --buildFuture
+  - hugo
   except:
   - master
 
 pages:
   script:
+  - printenv | sort
   - hugo --environment production
   - >-
     printf "Disallow: /*\n" > public/robot.txt
-  - printenv | sort
   artifacts:
     paths:
     - public
