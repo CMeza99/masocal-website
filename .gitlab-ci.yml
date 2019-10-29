@@ -19,8 +19,8 @@ pages:
   script:
   - printenv | sort
   - hugo --environment ${CI_ENVIRONMENT_NAME}
-  - >-
-    printf "Disallow: /*\n" > public/robot.txt
+  - |-
+    printf "User-agent: *\nDisallow: /\n" > public/robot.txt
   artifacts:
     paths:
     - public
@@ -29,6 +29,18 @@ pages:
       url: ${CI_PAGES_URL}
   only:
   - master
+
+# netify:
+#   stage: deploy
+#   when: manual
+#   script: hugo --environment ${CI_ENVIRONMENT_NAME}
+#   environment:
+#     name: production
+#     url:
+#   only:
+#   - master
+#   dependencies:
+#   - pages
 
 stages:
   - test
