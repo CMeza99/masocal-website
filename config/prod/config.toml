@@ -1,0 +1,5 @@
+baseURL = "https://www.masocal.org"
+buildDrafts = false
+buildFuture = false
+canonifyURLs = true
+publishDir = "public"
